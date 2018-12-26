@@ -30,15 +30,9 @@ function go_cart_delete() {
 	}
 }
 function go_order_insert() {
-	document.formm.action = "NonageServlet?command=order_insert";
-	document.formm.submit();
-}
-
-function go_order_insert() {
 	document.formm.action = "ShoppingServlet?command=order_insert";
 	document.formm.submit();
 }
-
 function go_order_delete() {
 	var count = 0;
 

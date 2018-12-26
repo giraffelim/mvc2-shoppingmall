@@ -21,7 +21,7 @@ public class CartDeleteAction implements Action{
 			System.out.println(cseq);
 			CartDAO cartDAO = CartDAO.getInstance();
 			cartDAO.deleteCart(Integer.parseInt(cseq));
-			cartDAO.auto_increment_rsort(Integer.parseInt(cseq));
+//			cartDAO.auto_increment_rsort(Integer.parseInt(cseq));
 		}
 		
 		request.getRequestDispatcher(url).forward(request, response);;
