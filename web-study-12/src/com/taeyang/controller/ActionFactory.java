@@ -1,5 +1,12 @@
 package com.taeyang.controller;
 
+import com.taeyang.admin.controller.action.AdminIndexAction;
+import com.taeyang.admin.controller.action.AdminLoginAction;
+import com.taeyang.admin.controller.action.AdminLogoutAction;
+import com.taeyang.admin.controller.action.AdminProductDetailAction;
+import com.taeyang.admin.controller.action.AdminProductListAction;
+import com.taeyang.admin.controller.action.AdminProductWriteAction;
+import com.taeyang.admin.controller.action.AdminProductWriteFormAction;
 import com.taeyang.controller.action.Action;
 import com.taeyang.controller.action.CartDeleteAction;
 import com.taeyang.controller.action.CartInsertAction;
@@ -104,6 +111,27 @@ public class ActionFactory {
 		}
 		if(command.equals("qna_view")) {
 			action = new QnaViewAction();
+		}
+		if(command.equals("admin_login_form")) {
+			action = new AdminIndexAction();
+		}
+		if(command.equals("admin_login")) {
+			action = new AdminLoginAction();
+		}
+		if(command.equals("admin_logout")) {
+			action = new AdminLogoutAction();
+		}
+		if(command.equals("admin_product_list")) {
+			action = new AdminProductListAction();
+		}
+		if(command.equals("admin_product_write_form")) {
+			action = new AdminProductWriteFormAction();
+		}
+		if(command.equals("admin_product_write")) {
+			action = new AdminProductWriteAction();
+		}
+		if(command.equals("admin_product_detail")) {
+			action = new AdminProductDetailAction();
 		}
 		return action;
 	}

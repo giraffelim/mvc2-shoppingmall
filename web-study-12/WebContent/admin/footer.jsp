@@ -11,6 +11,7 @@
 			</div>
 		</footer>
 		<!-- 풋터 들어가는 곳 끝 -->
+		</div>
 	</div>
 </body>
 </html>
