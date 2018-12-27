@@ -13,8 +13,17 @@ import com.taeyang.controller.action.JoinFormAction;
 import com.taeyang.controller.action.LoginAction;
 import com.taeyang.controller.action.LoginFormAction;
 import com.taeyang.controller.action.LogoutAction;
+import com.taeyang.controller.action.MyPageAction;
+import com.taeyang.controller.action.OrderAllAction;
+import com.taeyang.controller.action.OrderDetailAction;
+import com.taeyang.controller.action.OrderInsertAction;
+import com.taeyang.controller.action.OrderListAction;
 import com.taeyang.controller.action.ProductDetailAction;
 import com.taeyang.controller.action.ProductKindAction;
+import com.taeyang.controller.action.QnaListAction;
+import com.taeyang.controller.action.QnaViewAction;
+import com.taeyang.controller.action.QnaWriteAction;
+import com.taeyang.controller.action.QnaWriteFormAction;
 
 public class ActionFactory {
 	private ActionFactory() {
@@ -68,6 +77,33 @@ public class ActionFactory {
 		}
 		if(command.equals("cart_delete")) {
 			action = new CartDeleteAction();
+		}
+		if(command.equals("order_insert")) {
+			action = new OrderInsertAction();
+		}
+		if(command.equals("order_list")) {
+			action = new OrderListAction();
+		}
+		if(command.equals("mypage")) {
+			action = new MyPageAction();
+		}
+		if(command.equals("order_detail")) {
+			action = new OrderDetailAction();
+		}
+		if(command.equals("order_all")) {
+			action = new OrderAllAction();
+		}
+		if(command.equals("qna_list")) {
+			action = new QnaListAction();
+		}
+		if(command.equals("qna_write_form")) {
+			action = new QnaWriteFormAction();
+		}
+		if(command.equals("qna_write")) {
+			action = new QnaWriteAction();
+		}
+		if(command.equals("qna_view")) {
+			action = new QnaViewAction();
 		}
 		return action;
 	}

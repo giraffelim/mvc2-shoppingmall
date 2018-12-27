@@ -47,18 +47,18 @@ public class CartDAO {
 	}
 	//insert cart
 	public void insertCart(CartVO cVo) {
-		int num = selectMax();
-		String sql = "insert into cart(cseq, id, pseq, quantity) values(?, ?, ?, ?)";
+//		int num = selectMax();
+		String sql = "insert into cart(id, pseq, quantity) values(?, ?, ?)";
 		Connection con = null;
 		PreparedStatement pstmt = null;
 
 		try {
 			con = DBManager.getConnection();
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, num);
-			pstmt.setString(2, cVo.getId());
-			pstmt.setInt(3, cVo.getPseq());
-			pstmt.setInt(4, cVo.getQuantity());
+//			pstmt.setInt(1, num);
+			pstmt.setString(1, cVo.getId());
+			pstmt.setInt(2, cVo.getPseq());
+			pstmt.setInt(3, cVo.getQuantity());
 			pstmt.executeUpdate();
 		}catch(Exception e) {
 			e.printStackTrace();
