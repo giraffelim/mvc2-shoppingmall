@@ -10,29 +10,29 @@ import com.taeyang.controller.action.Action;
 import com.taeyang.dao.ProductDAO;
 import com.taeyang.dto.ProductVO;
 
-public class AdminProductDetailAction implements Action {
+public class AdminProductUpdateFormAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String url = "admin/product/productDetail.jsp";
-
-		String pseq = request.getParameter("pseq").trim();
-
+		String url = "admin/product/productUpdate.jsp";
+		
+		String pseq = request.getParameter("pseq");
+		
 		ProductDAO productDAO = ProductDAO.getInstance();
 		ProductVO productVO = productDAO.getProduct(pseq);
-
+		
 		request.setAttribute("productVO", productVO);
-
-		String tpage = "1";
-		if (request.getParameter("tpage") != null) {
-			tpage = request.getParameter("tpage");
+		String tpage="1";
+		if(request.getParameter("tpage") != null) {
+			tpage = request.getParameter("tapge");
 		}
 		
-		String kindList[] = {"0","Heels","Boots","Sandals","Sneakers","Sale"};
 		request.setAttribute("tpage", tpage);
-		int index = Integer.parseInt(productVO.getKind().trim());
-		request.setAttribute("kind", kindList[index]);
+		
+		String kindList[] = {"Heels","Boots","Sandals", "Sneakers", "Sale"};
+		
+		request.setAttribute("kindList", kindList);
 		
 		request.getRequestDispatcher(url).forward(request, response);
 	}

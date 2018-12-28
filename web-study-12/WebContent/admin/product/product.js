@@ -75,6 +75,12 @@ function go_search() {
 	theForm.submit();
 }
 
+function go_order_search() {
+	var theForm = document.frm;
+	theForm.action = "ShoppingServlet?command=admin_order_list";
+	theForm.submit();
+}
+
 function go_total() {
 	var theForm = document.frm;
 	theForm.key.value = "";

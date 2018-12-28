@@ -3,8 +3,12 @@ package com.taeyang.controller;
 import com.taeyang.admin.controller.action.AdminIndexAction;
 import com.taeyang.admin.controller.action.AdminLoginAction;
 import com.taeyang.admin.controller.action.AdminLogoutAction;
+import com.taeyang.admin.controller.action.AdminOrderListAction;
+import com.taeyang.admin.controller.action.AdminOrderSaveAction;
 import com.taeyang.admin.controller.action.AdminProductDetailAction;
 import com.taeyang.admin.controller.action.AdminProductListAction;
+import com.taeyang.admin.controller.action.AdminProductUpdateAction;
+import com.taeyang.admin.controller.action.AdminProductUpdateFormAction;
 import com.taeyang.admin.controller.action.AdminProductWriteAction;
 import com.taeyang.admin.controller.action.AdminProductWriteFormAction;
 import com.taeyang.controller.action.Action;
@@ -132,6 +136,18 @@ public class ActionFactory {
 		}
 		if(command.equals("admin_product_detail")) {
 			action = new AdminProductDetailAction();
+		}
+		if(command.equals("admin_product_update_form")) {
+			action = new AdminProductUpdateFormAction();
+		}
+		if(command.equals("admin_product_update")) {
+			action = new AdminProductUpdateAction();
+		}
+		if(command.equals("admin_order_list")) {
+			action = new AdminOrderListAction();
+		}
+		if(command.equals("admin_order_save")) {
+			action = new AdminOrderSaveAction();
 		}
 		return action;
 	}

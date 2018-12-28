@@ -26,11 +26,12 @@ public class OrderAllAction implements Action {
 			url = "ShoppingServlet?command=login_form";
 		} else {
 			OrderDAO orderDAO = OrderDAO.getInstance();
-			ArrayList<Integer> oseqList = orderDAO.SelectSeqOrdering(loginUser.getId());
-
+			ArrayList<Integer> oseqList = orderDAO.SelectSeqOrderings(loginUser.getId(),"%");
+			System.out.println(oseqList.size());
 			ArrayList<OrderVO> orderList = new ArrayList<OrderVO>();
 
 			for (int oseq : oseqList) {
+				
 				ArrayList<OrderVO> orderListing = orderDAO.listOrderByID(loginUser.getId(), "%", oseq);
 
 				OrderVO orderVO = orderListing.get(0);

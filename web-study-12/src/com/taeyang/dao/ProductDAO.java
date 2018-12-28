@@ -299,14 +299,13 @@ public class ProductDAO {
 
 	public int updateProduct(ProductVO product) {
 		int result = -1;
-		String sql = "update product set kind=?, useyn=?, name=?, price1=?, price2=?, price3=?, content=?, image=?, bestyn=?, where pseq=?";
+		String sql = "update product set kind=?, useyn=?, name=?, price1=?, price2=?, price3=?, content=?, image=?, bestyn=? where pseq=?";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 
 		try {
 			conn = DBManager.getConnection();
-			pstmt = conn.prepareStatement(sql);
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, product.getKind());
 			pstmt.setString(2, product.getUseyn());
@@ -319,6 +318,25 @@ public class ProductDAO {
 			pstmt.setString(9, product.getBestyn());
 			pstmt.setInt(10, product.getPseq());
 			pstmt.executeUpdate();
+			pstmt.close();
+			
+			//베스트 상품 추가
+			if(product.getBestyn().equals("y")) {
+				sql = "insert into bestProduct(pseq, name, kind, price1, price2, price3, content, image, useyn, bestyn)"
+						+"values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, product.getPseq());
+				pstmt.setString(2, product.getName());
+				pstmt.setString(3, product.getKind());
+				pstmt.setInt(4, product.getPrice1());
+				pstmt.setInt(5, product.getPrice2());
+				pstmt.setInt(6, product.getPrice3());
+				pstmt.setString(7, product.getContent());
+				pstmt.setString(8, product.getImage());
+				pstmt.setString(9, product.getUseyn());
+				pstmt.setString(10, product.getBestyn());
+				pstmt.executeUpdate();
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			// TODO: handle exception
