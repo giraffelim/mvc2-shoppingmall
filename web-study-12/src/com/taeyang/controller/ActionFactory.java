@@ -3,6 +3,7 @@ package com.taeyang.controller;
 import com.taeyang.admin.controller.action.AdminIndexAction;
 import com.taeyang.admin.controller.action.AdminLoginAction;
 import com.taeyang.admin.controller.action.AdminLogoutAction;
+import com.taeyang.admin.controller.action.AdminMemberListAction;
 import com.taeyang.admin.controller.action.AdminOrderListAction;
 import com.taeyang.admin.controller.action.AdminOrderSaveAction;
 import com.taeyang.admin.controller.action.AdminProductDetailAction;
@@ -11,6 +12,9 @@ import com.taeyang.admin.controller.action.AdminProductUpdateAction;
 import com.taeyang.admin.controller.action.AdminProductUpdateFormAction;
 import com.taeyang.admin.controller.action.AdminProductWriteAction;
 import com.taeyang.admin.controller.action.AdminProductWriteFormAction;
+import com.taeyang.admin.controller.action.AdminQnaDetailAction;
+import com.taeyang.admin.controller.action.AdminQnaListAction;
+import com.taeyang.admin.controller.action.AdminQnaResaveAction;
 import com.taeyang.controller.action.Action;
 import com.taeyang.controller.action.CartDeleteAction;
 import com.taeyang.controller.action.CartInsertAction;
@@ -148,6 +152,18 @@ public class ActionFactory {
 		}
 		if(command.equals("admin_order_save")) {
 			action = new AdminOrderSaveAction();
+		}
+		if(command.equals("admin_member_list")) {
+			action = new AdminMemberListAction();
+		}
+		if(command.equals("admin_qna_list")) {
+			action = new AdminQnaListAction();
+		}
+		if(command.equals("admin_qna_detail")) {
+			action = new AdminQnaDetailAction();
+		}
+		if(command.equals("admin_qna_repsave")) {
+			action = new AdminQnaResaveAction();
 		}
 		return action;
 	}
